@@ -14,14 +14,14 @@
 
 			JsonRequest.send('vendor/', 'GET', null, function(data){
 
-				$.ajaxSetup({ 
-					beforeSend: function(xhr, settings) {
-						if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
-							// Only send the token to relative URLs i.e. locally.
-							xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
-						}
-					} 
-				});
+//				$.ajaxSetup({ 
+//					beforeSend: function(xhr, settings) {
+//						if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+//							// Only send the token to relative URLs i.e. locally.
+//							xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+//						}
+//					} 
+//				});
 			})
 			function login(){
 				JsonRequest.send("auth/Login/", "POST",{username: "admin", password: "111111"},function (data){
@@ -56,7 +56,7 @@
 		function sendRequest(){
 			url = $("#url").val()
 			method = $("#method").val()
-			data = JSON.parse($("#data").val())
+			data = $("#data").val() ? JSON.parse($("#data").val()) : null
 
 			JsonRequest.send(url, method, data, function(result){
 				console.log(result);
