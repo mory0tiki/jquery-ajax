@@ -1,6 +1,6 @@
 var JsonRequest = (function() {
 	var my = {}
-	my.base_url = 'http://23.92.220.46:8000/'
+	my.base_url = 'http://localhost:8000/'
 	my.result = {	hasError : true,
 			data: null
 			};
