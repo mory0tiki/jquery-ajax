@@ -1,6 +1,6 @@
 var JsonRequest = (function() {
 	var my = {}
-	my.base_url = 'http://23.92.220.46:8000/'
+	my.base_url = 'http://localhost:8000/'
 	my.result = {	hasError : true,
 			data: null
 			};
@@ -8,10 +8,10 @@ var JsonRequest = (function() {
 	my.send = function(url, type, data, callback){
 			$.ajaxSetup({ 
 					beforeSend: function(xhr, settings) {
-						if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+						//if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
 							// Only send the token to relative URLs i.e. locally.
-							xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
-						}
+							xhr.setRequestHeader("X-CSRFToken",$.cookie ('csrftoken'));
+						//}
 					} 
 			});
 			$.ajax({
