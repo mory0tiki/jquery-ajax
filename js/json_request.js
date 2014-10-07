@@ -22,7 +22,7 @@ var JsonRequest = (function() {
 				xhrFields: {withCredentials: true}
 			}).done(function (data, state, jXHR){
 
-				my.result = { hasError: false, data: JSON.parse(data) };
+				my.result = JSON.parse(data);
 				callback(my.result);
 
 			}).fail(function(data, state, jXHR){
